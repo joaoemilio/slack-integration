@@ -1,0 +1,42 @@
+<server>
+    <featureManager>
+        <feature>beanValidation-1.1</feature>
+        <feature>cdi-1.2</feature>
+        <feature>ejbLite-3.2</feature>
+        <feature>el-3.0</feature>
+        <feature>jaxrs-2.0</feature>
+        <feature>jdbc-4.1</feature>
+        <feature>jndi-1.0</feature>
+        <feature>jpa-2.1</feature>
+        <feature>jsf-2.2</feature>
+        <feature>jsonp-1.0</feature>
+        <feature>jsp-2.3</feature>
+        <feature>managedBeans-1.0</feature>
+        <feature>servlet-3.1</feature>
+        <feature>websocket-1.1</feature>
+        <feature>icap:managementConnector-1.0</feature>
+        <feature>appstate-2.0</feature>
+    </featureManager>
+    <application name='myapp' location='myapp.war' type='war' context-root='/'/>
+    <cdi12 enableImplicitBeanArchives='false'/>
+    <httpEndpoint id='defaultHttpEndpoint' host='127.0.0.1' httpPort='${port}'/>
+    <webContainer trustHostHeaderPort='true' extractHostHeaderPort='true'/>
+    <include location='runtime-vars.xml'/>
+    <logging logDirectory='${application.log.dir}' consoleLogLevel='INFO'/>
+    <httpDispatcher enableWelcomePage='false'/>
+    <applicationMonitor dropinsEnabled='false' updateTrigger='mbean'/>
+    <config updateTrigger='mbean'/>
+    <appstate2 appName='myapp'/>
+    
+    <dataSource jndiName="jdbc/ds-watson-ibmer">
+	    <jdbcDriver id="mysqlDriver" libraryRef="mysql-connector" />
+	    <properties
+	        URL="jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/ad_b1e566c4402e33d"
+	        password="0363b29b" user="b80a63e99c2124" />
+	</dataSource>
+	<library description="MySQL JDBC Driver" id="mysql-connector"
+	    name="MySQL Connector">
+	    <fileset dir="${server.config.dir}" id="mysql-connector-jar"
+	        includes="mysql-connector-java-*.jar" />
+	</library>
+</server>

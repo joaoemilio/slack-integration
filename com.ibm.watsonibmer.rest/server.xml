@@ -1,0 +1,11 @@
+<dataSource jndiName="jdbc/ds-watson-ibmer">
+    <jdbcDriver id="mysqlDriver" libraryRef="mysql-connector" />
+    <properties
+        URL="jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/ad_b1e566c4402e33d"
+        password="0363b29b" user="b80a63e99c2124" />
+</dataSource>
+<library description="MySQL JDBC Driver" id="mysql-connector"
+    name="MySQL Connector">
+    <fileset dir="${server.config.dir}" id="mysql-connector-jar"
+        includes="mysql-connector-java-*.jar" />
+</library>
