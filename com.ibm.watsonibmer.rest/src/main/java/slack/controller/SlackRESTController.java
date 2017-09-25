@@ -1,5 +1,10 @@
 package slack.controller;
 
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.ec2.AmazonEC2;
+import com.amazonaws.services.ec2.AmazonEC2ClientBuilder;
+import com.amazonaws.services.ec2.model.StartInstancesRequest;
 import com.amazonaws.services.ec2.model.StopInstancesRequest;
 import com.ibm.watsonibmer.domain.ReplyText;
 import com.ibm.watsonibmer.service.SlackSlashCommandService;
@@ -36,7 +41,12 @@ public class SlackRESTController {
 			log.info( param + " " + request.getParameterValues(param)[0]);
 		}
 
-		StopInstancesRequest aws = new StopInstancesRequest().withInstanceIds("i-058f3f1830f64c8af");
+		final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
+
+		StartInstancesRequest startRequest = new StartInstancesRequest()
+				.withInstanceIds( request.getParameter("text"));
+
+		ec2.startInstances(startRequest);
 
 		return "OK";
 	}
