@@ -1,8 +1,6 @@
 package com.ibm.watsonibmer.rest;
 
-import javax.ws.rs.Path;
 
-@Path("/config")
 public class ConfigREST {
 	/*
 	@POST
@@ -16,7 +14,7 @@ public class ConfigREST {
 			json = JSONParser.getInstance().toJSONString(domain);
 		    return Response.ok(json, MediaType.APPLICATION_JSON).build();
 		} else {
-			return Response.status(Response.Status.CONFLICT).entity("Não é possivel criar o Config com as informações fornecidas").build();
+			return Response.status(Response.Status.CONFLICT).entity("Nï¿½o ï¿½ possivel criar o Config com as informaï¿½ï¿½es fornecidas").build();
 		}
 	}
 	
@@ -30,7 +28,7 @@ public class ConfigREST {
 			String json = JSONParser.getInstance().toJSONString(domain);
 		    return Response.ok( json , MediaType.APPLICATION_JSON).build();
 		} else {
-			return Response.status(Response.Status.NOT_FOUND).entity("Config não encontrado: " + _uuid).build();
+			return Response.status(Response.Status.NOT_FOUND).entity("Config nï¿½o encontrado: " + _uuid).build();
 		}
 	}
 	
@@ -54,7 +52,7 @@ public class ConfigREST {
 			service.delete(domain);
 		    return Response.ok( "Config removido com sucesso" , MediaType.APPLICATION_JSON).build();
 		} else {
-			return Response.status(Response.Status.NOT_FOUND).entity("Config não encontrado: " + _uuid).build();
+			return Response.status(Response.Status.NOT_FOUND).entity("Config nï¿½o encontrado: " + _uuid).build();
 		}
 	}
 	*/

@@ -5,7 +5,7 @@ import com.ibm.watsonibmer.action.ReplyTextAction;
 import com.ibm.watsonibmer.domain.ReplyText;
 import com.ibm.watsonibmer.slack.domain.Payload;
 
-public class SlackSlashCommandService extends Service {
+public class SlackSlashCommandService {
 	
 	private Action parseCommandOptions(String commandLine) {
 	    Action action = null;
@@ -27,12 +27,6 @@ public class SlackSlashCommandService extends Service {
         	result = r.getPayload();
         }
         return result;
-	}
-	
-	public void saveReplyText(ReplyText domain) {
-		startTransaction();
-		em.merge(domain);
-		commitTransaction();
 	}
 
 	public ReplyText find(Class<ReplyText> class1, String name) {

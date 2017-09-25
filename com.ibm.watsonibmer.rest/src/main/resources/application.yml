@@ -1,0 +1,19 @@
+server:
+   contextPath: /
+   port: 8080
+tomcat:
+   ajp:
+      port: 8009
+      remoteauthentication: false
+      enabled: true
+spring:
+    thymeleaf:
+        mode: LEGACYHTML5
+logging:
+   file: SystemOut.log
+   level:
+       root: INFO
+       org.springframework.security: INFO
+
+
+
