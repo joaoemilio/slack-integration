@@ -43,11 +43,14 @@ public class SlackRESTController {
 
 		final AmazonEC2 ec2 = AmazonEC2ClientBuilder.defaultClient();
 
+		/*
 		StartInstancesRequest startRequest = new StartInstancesRequest()
 				.withInstanceIds( request.getParameter("text"));
 
 		ec2.startInstances(startRequest);
-
+*/
+		StopInstancesRequest stopRequest = new StopInstancesRequest().withInstanceIds( request.getParameter("text"));
+		ec2.stopInstances(stopRequest);
 		return "OK";
 	}
 
