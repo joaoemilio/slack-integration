@@ -33,7 +33,7 @@ public class SlackRESTController {
 		Iterator<String> it = request.getParameterNames();
 		while( it.hasNext() ) {
 			String param = it.next();
-			log.info( param + " " + request.getParameterValues(param));
+			log.info( param + " " + request.getParameterValues(param)[0]);
 		}
 
 		StopInstancesRequest aws = new StopInstancesRequest().withInstanceIds("i-058f3f1830f64c8af");
